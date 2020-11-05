@@ -19,7 +19,7 @@
     name: watchtower
     image: "containrrr/watchtower"
     pull: yes
-    command: "--cleanup"
+    command: '--cleanup --label-enable --schedule "0 0 3 * * *"'
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "/var/run/docker.sock:/var/run/docker.sock"
