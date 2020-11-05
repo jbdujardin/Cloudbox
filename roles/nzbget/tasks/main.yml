@@ -43,7 +43,7 @@
   lineinfile:
     path: "/opt/nzbget/app/nzbget.conf"
     regexp: '^ShellOverride\s?=.*'
-    line: 'ShellOverride=.py=/usr/bin/python3'
+    line: "ShellOverride=.py=/usr/bin/python3"
     state: present
   when: nzbget_conf.stat.exists
 
@@ -75,6 +75,7 @@
     volumes: "{{ default_volumes + nzbs_downloads_path|default([]) }}"
     labels:
       "com.github.cloudbox.cloudbox_managed": "true"
+      "com.centurylinklabs.watchtower": "true"
     networks:
       - name: cloudbox
         aliases:
@@ -91,7 +92,7 @@
 - name: Settings Task
   include_tasks: "subtasks/settings.yml"
   when: not (
-        (nzbget_conf.stat.exists)
-        or
-        (continuous_integration)
+    (nzbget_conf.stat.exists)
+    or
+    (continuous_integration)
     )

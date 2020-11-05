@@ -44,6 +44,7 @@
       LETSENCRYPT_EMAIL: "{{ user.email }}"
     labels:
       "com.github.cloudbox.cloudbox_managed": "true"
+      "com.centurylinklabs.watchtower": "true"
     networks:
       - name: cloudbox
         aliases:

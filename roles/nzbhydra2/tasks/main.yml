@@ -71,6 +71,7 @@
     volumes: "{{ default_volumes + migration_path|default([]) }}"
     labels:
       "com.github.cloudbox.cloudbox_managed": "true"
+      "com.centurylinklabs.watchtower": "true"
     networks:
       - name: cloudbox
         aliases:
@@ -82,7 +83,7 @@
 - name: Settings Tweaks
   include_tasks: "subtasks/nzbhydra2_settings.yml"
   when: not (
-        (nzbhydra2_yml.stat.exists)
-        or
-        (continuous_integration)
+    (nzbhydra2_yml.stat.exists)
+    or
+    (continuous_integration)
     )

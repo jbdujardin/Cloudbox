@@ -69,6 +69,7 @@
     volumes: "{{ default_volumes + torrents_downloads_path|default([]) }}"
     labels:
       "com.github.cloudbox.cloudbox_managed": "true"
+      "com.centurylinklabs.watchtower": "true"
     networks:
       - name: cloudbox
         aliases:
