@@ -29,7 +29,7 @@
 - name: Create and start container
   docker_container:
     name: ombi
-    image: "hotio/ombi:release-3.0.5202"
+    image: "hotio/ombi:release-3.0.4892"
     pull: yes
     published_ports:
       - "127.0.0.1:3579:5000"
